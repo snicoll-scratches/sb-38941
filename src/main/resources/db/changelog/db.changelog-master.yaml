@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      id:  1
+      author: Liquibase User
+      changes:
+        - createTable:
+            tableName: book
+            columns:
+              - column:
+                  name: isbn
+                  type: NUMERIC
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name:  price
+                  type:  numeric(12)
+                  constraints:
+                    nullable:  false
+  - changeSet:
+      id:  2
+      author: Liquibase User
+      changes:
+        - modifyDataType:
+            tableName:  book
+            columnName:  price
+            newDataType:  numeric(12,2)
